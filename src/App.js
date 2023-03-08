@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Container } from "./components/styles/Container.styled";
-import Header from "./components/header";
 import Profile from "./components/profile";
 
 // styles
@@ -24,7 +23,6 @@ function App() {
     } else {
       setTheme('light');
     }
-
   }
 
   // function to change the text and svg inside the toggle bar, depending on the state

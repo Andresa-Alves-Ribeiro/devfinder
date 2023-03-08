@@ -55,9 +55,5 @@ body {
     background-color: ${({theme}) => theme.bgClr};
     font-family: 'Space Mono', monospace;
   }
-  
-p, a {
-    font-size: 1rem;
-  }
 
 `

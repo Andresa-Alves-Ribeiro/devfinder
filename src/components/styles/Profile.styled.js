@@ -82,6 +82,7 @@ export const StyledSearch = styled.div`
         color: ${({ theme }) => theme.txtClr5};
         margin-left: auto;
         font-family: 'Space Mono', monospace;
+        font-weight: 600;
         cursor: pointer;
 
         &:hover {
@@ -95,7 +96,6 @@ export const StyledProfileCard = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    /* margin: 0 1.5rem 1rem 1.5rem; */
     padding: 2rem 1.5rem 3rem 1.5rem;
     background-color: ${({ theme }) => theme.cardClr};
     box-shadow: ${({ theme }) => theme.shadow};
@@ -154,6 +154,10 @@ export const StyledPersonDetails = styled.div`
             h4 {
                 font-size: 0.813rem;
                 color: ${({ theme }) => theme.btnTxtClr};
+            }
+
+            p {
+                font-size: 0.85rem;
             }
 
         }
@@ -249,7 +253,7 @@ export const StyledPersonStats = styled.div`
 export const StyledSocial = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    font-size: 0.9rem;
 
     div {
         display: flex;
@@ -273,7 +277,7 @@ export const StyledSocial = styled.div`
         grid-template-columns: repeat(2, 1fr);
         column-gap: 6.2rem;
         overflow-x: auto;
-        height: 7rem;
+        height: 5rem;
         padding-bottom: 1rem;
     }
 `

@@ -1,19 +1,33 @@
-import React, {useState} from 'react';
-import {ReactComponent as Glass} from '../assets/icons/search.svg';
+import React, { useState } from 'react';
+import { ReactComponent as Glass } from '../assets/icons/search.svg';
 import { StyledPersonDetails, StyledPersonStats, StyledProfileCard, StyledSearch, StyledSocial } from './styles/Profile.styled';
-import pin from '../assets/icons/003-pin.svg';
+import office from '../assets/icons/001-office.svg';
+import officeDark from '../assets/icons/001-office-dark.svg';
 import urlIcon from '../assets/icons/002-url.svg';
+import urlIconDark from '../assets/icons/002-url-dark.svg';
+import pin from '../assets/icons/003-pin.svg';
+import pinDark from '../assets/icons/003-pin-dark.svg';
 import twitter from '../assets/icons/004-twitter.svg';
-import office from '../assets/icons/001-office-building.svg';
+import twitterDark from '../assets/icons/004-twitter-dark.svg';
 import styledComponents from 'styled-components';
 import theme from '../App'
 
-export default function Profile () {
+export default function Profile() {
 
     // SETTING STATES
     const [user, setUser] = React.useState({
         username: ''
     });
+
+    const [theme, setTheme] = useState('light');
+
+    const toggleTheme = () => {
+        if (theme === 'light') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    }
 
     // takes up the value of the user's input and is passed to the API
     let [apiNameValue, setApiNameValue] = useState('octocat');
@@ -40,19 +54,19 @@ export default function Profile () {
     const [nullDataValue, setNullDataValue] = useState('Not available')
 
     //function to handle change in input from page form
-    function handleChange (event) {
+    function handleChange(event) {
         setUser(prevUser => {
             return {
                 [event.target.name]: event.target.value
             }
         });
-        }
+    }
 
     // useEffect function to manage data from github API
     React.useEffect(() => {
         fetch(`https://api.github.com/users/${apiNameValue}`)
             .then((res) => {
-                if(res.ok) {
+                if (res.ok) {
                     return res.json()
                 }
                 console.log('404 ERROR')
@@ -60,6 +74,9 @@ export default function Profile () {
             })
             .then((result) => {
                 setErrorMsg(false)
+
+                const bioText = result.bio == null ? 'This profile has no bio' : result.bio;
+
                 setUserData(prevUserData => {
                     return {
                         ...prevUserData,
@@ -67,7 +84,7 @@ export default function Profile () {
                         name: result.name,
                         login: result.login,
                         createdDate: result.created_at,
-                        bio: result.bio,
+                        bio: bioText.length === 0 ? 'This profile has no bio' : bioText,
                         repos: result.public_repos,
                         followers: result.followers,
                         following: result.following,
@@ -77,80 +94,84 @@ export default function Profile () {
                         company: result.company
                     }
                 })
-            }) 
+            })
             .catch(err => {
                 setErrorMsg(true)
             });
-        }
+    }
 
-    , [apiNameValue])
-    
+        , [apiNameValue])
+
     //changing the format of the date we call in the component
+    function formatDate(date) {
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = months[date.getMonth()];
+        const year = date.getFullYear().toString();
+        return `${day} ${month} ${year}`;
+    }
+
     let prevDate = new Date(userData.createdDate)
-    let newDate = prevDate.toDateString();
+    let newDate = formatDate(prevDate);
 
     // this is messy. Will revisit. If/else statements to return "Not available" message for empty data returns
-    function nullValueText () {
+    function nullValueText() {
         if (userData.location === '' || userData.location === null) {
             setUserData(prevUserData => {
-            return {
-                ...prevUserData,
-                location: nullDataValue
-            }
+                return {
+                    ...prevUserData,
+                    location: nullDataValue
+                }
             })
         } else if (userData.blog === '' || userData.blog === null) {
             setUserData(prevUserData => {
-            return {
-                ...prevUserData,
-                blog: nullDataValue
-            }
+                return {
+                    ...prevUserData,
+                    blog: nullDataValue
+                }
             })
         } else if (userData.twitter === '' || userData.twitter === null) {
             setUserData(prevUserData => {
-            return {
-                ...prevUserData,
-                twitter: nullDataValue
-            }
+                return {
+                    ...prevUserData,
+                    twitter: nullDataValue
+                }
             })
         } else if (userData.company === '' || userData.company === null) {
             setUserData(prevUserData => {
-            return {
-                ...prevUserData,
-                company: nullDataValue
-            }
+                return {
+                    ...prevUserData,
+                    company: nullDataValue
+                }
             })
         }
     }
 
 
     // function to generate a name value for the API when the submit button is clicked
-    function handleClick () {
-            setApiNameValue(apiNameValue = user.username)
+    function handleClick() {
+        setApiNameValue(apiNameValue = user.username)
     }
 
-    nullValueText ();
+    nullValueText();
 
     // RETURN STATEMENT
 
     return (
         <div>
 
-            {/* search bar for users to input their Github username */}
-            
             <StyledSearch>
                 <Glass />
 
-                
-                <input type='text' name='username' placeholder='GitHub username...' 
-                onChange={handleChange} value={user.username}/>
-                
+
+                <input type='text' name='username' placeholder='Search GitHub username...'
+                    onChange={handleChange} value={user.username} />
+
 
                 {errorMsg && <p>No results</p>}
-                
-                <button type='submit'  onClick={handleClick}>Search</button>
-            </StyledSearch> 
 
-            {/* card section with user details */}
+                <button type='submit' onClick={handleClick}>Search</button>
+            </StyledSearch>
 
             <StyledProfileCard>
 
@@ -168,34 +189,30 @@ export default function Profile () {
                     <p>{userData.bio}</p>
                 </StyledPersonDetails>
 
-                {/* showing stats on their account */}
-
                 <StyledPersonStats>
                     <div><p>Repos</p><span>{userData.repos}</span></div>
                     <div><p>Followers</p><span>{userData.followers}</span></div>
                     <div><p>Following</p><span>{userData.following}</span></div>
                 </StyledPersonStats>
 
-                {/* social icons */}
-
                 <StyledSocial>
-                    <div style={{opacity: userData.location === nullDataValue ? '50%' : '100%'}}>
-                        <img src={pin} alt='location icon'/>
+                    <div style={{ opacity: userData.location === nullDataValue ? '50%' : '100%' }}>
+                        {setTheme === "dark" ? <img src={pinDark} alt='location icon' /> : <img src={pin} alt='location icon' />}
                         <p>{userData.location}</p>
                     </div>
 
-                    <div style={{opacity: userData.blog === nullDataValue ? '50%' : '100%'}}>
-                        <img src={urlIcon} alt='link icon'/>
-                        <a href={userData.blog} target='_blank'>{userData.blog}</a>
-                    </div>
-
-                    <div style={{opacity: userData.twitter === nullDataValue ? '50%' : '100%'}}>
-                        <img src={twitter} alt='twitter icon'/>
+                    <div style={{ opacity: userData.twitter === nullDataValue ? '50%' : '100%' }}>
+                        {setTheme === "dark" ? <img src={twitterDark} alt='twitter icon' /> : <img src={twitter} alt='twitter icon' />}
                         <p>{userData.twitter}</p>
                     </div>
 
-                <div style={{opacity: userData.company === nullDataValue ? '50%' : '100%'}}>
-                        <img src={office} alt='place of work icon'/>
+                    <div style={{ opacity: userData.blog === nullDataValue ? '50%' : '100%' }}>
+                        {setTheme === "dark" ? <img src={urlIconDark} alt='link icon' /> : <img src={urlIcon} alt='link icon' />}
+                        <a href={userData.blog} target='_blank'>{userData.blog}</a>
+                    </div>
+
+                    <div style={{ opacity: userData.company === nullDataValue ? '50%' : '100%' }}>
+                        {setTheme === "dark" ? <img src={officeDark} alt='place of work icon' /> : <img src={office} alt='place of work icon' />}
                         <p>{userData.company}</p>
                     </div>
                 </StyledSocial>

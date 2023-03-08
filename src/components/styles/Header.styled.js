@@ -4,7 +4,6 @@ export const StyledHeader = styled.header`
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: start; */
     margin: 1.938rem 0 2.25rem 0;
     width: 20.438rem;
 
@@ -12,7 +11,7 @@ export const StyledHeader = styled.header`
         font-size: 1.625rem;
         font-weight: 700;
         margin-left: -1.25rem;
-        color: ${({theme}) => theme.txtClr2};
+        color: ${({ theme }) => theme.txtClr2};
     }
 
     @media (min-width: 46rem) {
@@ -34,11 +33,13 @@ export const StyledToggleBar = styled.div`
         cursor: pointer;
 
         p {
-            font-weight: 700;
-            color: ${({theme}) => theme.txtClr1};
+            font-size: 0.88rem;
+            letter-spacing: 0.15rem;
+            font-weight: 600;
+            color: ${({ theme }) => theme.txtClr1};
         }
 
         &:hover {
-            opacity: 75%;
+            opacity: 70%;
         }
 `
