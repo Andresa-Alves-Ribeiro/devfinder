@@ -12,6 +12,7 @@ import twitterDark from '../assets/icons/004-twitter-dark.svg';
 import styledComponents from 'styled-components';
 import theme from '../App'
 
+
 export default function Profile() {
 
     // SETTING STATES
@@ -197,22 +198,22 @@ export default function Profile() {
 
                 <StyledSocial>
                     <div style={{ opacity: userData.location === nullDataValue ? '50%' : '100%' }}>
-                        {setTheme === "dark" ? <img src={pinDark} alt='location icon' /> : <img src={pin} alt='location icon' />}
+                        <img src={pin} alt='location icon' />
                         <p>{userData.location}</p>
                     </div>
 
                     <div style={{ opacity: userData.twitter === nullDataValue ? '50%' : '100%' }}>
-                        {setTheme === "dark" ? <img src={twitterDark} alt='twitter icon' /> : <img src={twitter} alt='twitter icon' />}
+                        <img src={twitter} alt='twitter icon' />
                         <p>{userData.twitter}</p>
                     </div>
 
                     <div style={{ opacity: userData.blog === nullDataValue ? '50%' : '100%' }}>
-                        {setTheme === "dark" ? <img src={urlIconDark} alt='link icon' /> : <img src={urlIcon} alt='link icon' />}
+                        <img src={urlIcon} alt='link icon' />
                         <a href={userData.blog} target='_blank'>{userData.blog}</a>
                     </div>
 
                     <div style={{ opacity: userData.company === nullDataValue ? '50%' : '100%' }}>
-                        {setTheme === "dark" ? <img src={officeDark} alt='place of work icon' /> : <img src={office} alt='place of work icon' />}
+                        <img src={office} alt='place of work icon' className='officeIcon' />
                         <p>{userData.company}</p>
                     </div>
                 </StyledSocial>

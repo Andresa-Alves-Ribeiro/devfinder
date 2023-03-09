@@ -272,6 +272,10 @@ export const StyledSocial = styled.div`
         }
     }
 
+    .officeIcon {
+        fill: ${({ theme }) => theme.imgIcons};
+    }
+
     @media only screen and (min-width: 46rem) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

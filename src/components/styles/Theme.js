@@ -1,5 +1,6 @@
 export const lightTheme = {
     bgClr: '#F6F8FF',
+    imgIcons: '#4B6A9B',
     cardClr: '#FEFEFE',
     txtClr1: '#4B6A9B',
     txtClr2: '#2B3442',
@@ -11,6 +12,7 @@ export const lightTheme = {
 
 export const darkTheme = {
     bgClr: '#141D2F',
+    imgIcons: '#FFF',
     cardClr: '#1E2A47',
     txtClr1: '#FFF',
     txtClr2: '#FFF',
