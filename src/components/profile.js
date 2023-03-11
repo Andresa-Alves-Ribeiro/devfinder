@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 import { ReactComponent as Glass } from '../assets/icons/search.svg';
 import { StyledPersonDetails, StyledPersonStats, StyledProfileCard, StyledSearch, StyledSocial } from './styles/Profile.styled';
 import office from '../assets/icons/001-office.svg';
-import officeDark from '../assets/icons/001-office-dark.svg';
 import urlIcon from '../assets/icons/002-url.svg';
-import urlIconDark from '../assets/icons/002-url-dark.svg';
 import pin from '../assets/icons/003-pin.svg';
-import pinDark from '../assets/icons/003-pin-dark.svg';
 import twitter from '../assets/icons/004-twitter.svg';
-import twitterDark from '../assets/icons/004-twitter-dark.svg';
 import styledComponents from 'styled-components';
 import theme from '../App'
 
