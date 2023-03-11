@@ -13,8 +13,6 @@ export default function Profile() {
         username: ''
     });
 
-    const [theme, setTheme] = useState('light');
-
     // takes up the value of the user's input and is passed to the API
     let [apiNameValue, setApiNameValue] = useState('octocat');
 
@@ -37,7 +35,7 @@ export default function Profile() {
     });
 
     // string to be used to replace userData object values when ''  or null is returned
-    const [nullDataValue, setNullDataValue] = useState('Not available')
+    const [nullDataValue] = useState('Not available')
 
     //function to handle change in input from page form
     function handleChange(event) {
