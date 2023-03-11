@@ -260,6 +260,7 @@ export const StyledSocial = styled.div`
         flex-direction: row;
         align-items: center;
         gap: 1.203rem;
+        padding: 0.5rem;
         color: ${({ theme }) => theme.txtClr1};
 
         a {
