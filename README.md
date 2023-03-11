@@ -14,9 +14,11 @@
 &nbsp;
 
 **Desktop View**
+![web](https://user-images.githubusercontent.com/94997593/224514310-9d3c2b2f-8063-49ae-ac21-ffa15b746439.png)
+
 
 **Mobile View** <br/>
-
+![mobile](https://user-images.githubusercontent.com/94997593/224514424-8a5a7962-77fa-4f40-b134-f82d002c9d29.png)
 
 &nbsp;
 <a id="-sobre-o-projeto"></a>
@@ -70,7 +72,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 <p align="center">
   <a href= "https://www.styled-components.com/"><img alt="Styled-components badge" src="https://img.shields.io/static/v1?logoWidth=15&logoColor=FFC0CB&logo=styled-components&label=Style&message=Styled-Components&color=FFC0CB"></a>
   <a href= "https://docs.github.com/en/rest?apiVersion=2022-11-28"><img alt="Github badge" src="https://img.shields.io/static/v1?logoWidth=15&logoColor=3178c6&logo=github&label=Language&message=Github API&color=3178c6"></a>
-  <a href= "https://reactjs.org/"><img alt="React badge" src="https://img.shields.io/static/v1?logoWidth=15&logoColor=61dafb&logo=geolocation&label=Framework&message=IP Geolocation&color=61dafb"></a>
+  <a href= "https://reactjs.org/"><img alt="React badge" src="https://img.shields.io/static/v1?logoWidth=15&logoColor=61dafb&logo=React&label=Framework&message=React.js&color=61dafb"></a>
   <a href= "https://code.visualstudio.com/download"><img alt="vscode download" src="https://img.shields.io/static/v1?logoWidth=15&logoColor=007ACC&logo=Visual Studio Code&label=IDE&message=Visual Studio Code&color=007ACC"></a>
 </p>
 
