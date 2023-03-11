@@ -5,9 +5,6 @@ import office from '../assets/icons/001-office.svg';
 import urlIcon from '../assets/icons/002-url.svg';
 import pin from '../assets/icons/003-pin.svg';
 import twitter from '../assets/icons/004-twitter.svg';
-import styledComponents from 'styled-components';
-import theme from '../App'
-
 
 export default function Profile() {
 
@@ -17,14 +14,6 @@ export default function Profile() {
     });
 
     const [theme, setTheme] = useState('light');
-
-    const toggleTheme = () => {
-        if (theme === 'light') {
-            setTheme('dark');
-        } else {
-            setTheme('light');
-        }
-    }
 
     // takes up the value of the user's input and is passed to the API
     let [apiNameValue, setApiNameValue] = useState('octocat');
@@ -174,7 +163,7 @@ export default function Profile() {
 
                 <StyledPersonDetails>
                     <div className='img-text-wrapper'>
-                        <img src={userData.avatarUrl} alt="user's profile picture" />
+                        <img src={userData.avatarUrl} alt="user's profile" />
 
                         <div>
                             <h3>{userData.name}</h3>
@@ -205,7 +194,7 @@ export default function Profile() {
 
                     <div style={{ opacity: userData.blog === nullDataValue ? '50%' : '100%' }}>
                         <img src={urlIcon} alt='link icon' />
-                        <a href={userData.blog} target='_blank'>{userData.blog}</a>
+                        <a href={userData.blog} target='_blank' rel="noreferrer">{userData.blog}</a>
                     </div>
 
                     <div style={{ opacity: userData.company === nullDataValue ? '50%' : '100%' }}>
