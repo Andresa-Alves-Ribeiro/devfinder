@@ -14,7 +14,7 @@
 &nbsp;
 
 **Desktop View**
-![web](https://user-images.githubusercontent.com/94997593/224514310-9d3c2b2f-8063-49ae-ac21-ffa15b746439.png)
+![web](https://user-images.githubusercontent.com/94997593/236587858-95ab532f-c93a-4f30-81e2-6a1ce8d76c6e.png)
 
 
 **Mobile View** <br/>
